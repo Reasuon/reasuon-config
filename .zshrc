@@ -72,6 +72,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # 常用命令
+alias ls='lsd --date +"%F %T"'
 alias ll='lsd -l'
 alias la='lsd -la'
 
