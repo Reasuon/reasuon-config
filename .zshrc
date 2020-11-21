@@ -73,8 +73,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # 常用命令
 alias ls='lsd --date +"%F %T"'
-alias ll='lsd -l'
-alias la='lsd -la'
+alias ll='ls -l'
+alias la='ls -la'
 
 # 保存应用
 antigen apply
