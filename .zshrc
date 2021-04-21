@@ -5,16 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# 注释掉 manjaro 自带的配置文件，重新配置
-## Source manjaro-zsh-configuration
-#if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-#  source /usr/share/zsh/manjaro-zsh-config
-#fi
-## Use manjaro zsh prompt
-#if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-#  source /usr/share/zsh/manjaro-zsh-prompt
-#fi
-
 # ======================================== ↓README↓ ========================================
 #
 # 1. 以下是 .zshrc 配置，上面是自动生成的配置和废弃配置
@@ -75,6 +65,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 alias ls='lsd --date +"%F %T"'
 alias ll='ls -l'
 alias la='ls -la'
+
+# 终端颜色设置
+# 需要提前安装 ncurses
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+else
+        export TERM='xterm-color'
+fi
 
 # 保存应用
 antigen apply
