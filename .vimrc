@@ -40,6 +40,9 @@ endfunction
 " 绑定F2到winmanager，并在启动时关闭额外自动打开的缓冲区 "
 nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 
+" 当剩下最后一个不可编辑窗口时，自动退出 vim
+autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+
 " ============ WinManager Config End ============ "
 
 " 修复第一个窗口不能打开 airline

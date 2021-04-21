@@ -74,6 +74,9 @@ else
         export TERM='xterm-color'
 fi
 
+# 终端字符集设置
+export LESSCHARSET=utf-8
+
 # 保存应用
 antigen apply
 
