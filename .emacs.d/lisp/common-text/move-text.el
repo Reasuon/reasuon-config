@@ -37,3 +37,5 @@
 ;; 绑定快捷键
 (global-set-key [S-C-up] 'move-text-up)
 (global-set-key [S-C-down] 'move-text-down)
+
+(provide 'move-text)
