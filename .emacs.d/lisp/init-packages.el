@@ -9,5 +9,7 @@
 ;; 自动补全
 (use-package auto-complete)
 (require 'auto-complete)
+;; 启动自动补全
+(auto-complete-mode 1)
 
 (provide 'init-packages)

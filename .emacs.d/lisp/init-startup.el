@@ -11,7 +11,7 @@
 
 ;; 修复区域选择与输入法的冲突
 (global-unset-key (kbd "C-SPC"))
-(global-set-key (kbd "C-@") 'set-mark-command)
+(global-set-key (kbd "C-x C-2") 'set-mark-command)
 
 ;; 关闭工具栏
 (tool-bar-mode 0)
