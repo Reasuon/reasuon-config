@@ -15,6 +15,9 @@
 (unless (bound-and-true-p package--initialized)
   (package-initialize))
 
+;; 如果启动时输出 package-initialize 警告，则需要加入以下这行，反之则不需要
+(setq warning-suppress-log-types '((package reinitialization)))
+
 (package-initialize)
 
 ;; 刷新软件源

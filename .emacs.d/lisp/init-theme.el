@@ -39,6 +39,8 @@
   :config
   (setq doom-modeline-icon (display-graphic-p))
   (setq doom-modeline-major-mode-icon t)
+  ;;(defcustom doom-modeline-hud nil)
+  ;;(setq doom-modeline-buffer-file-name-style 'auto)
   :init (doom-modeline-mode 1))
 
 ;; 彩虹括号
