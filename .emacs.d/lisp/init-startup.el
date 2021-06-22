@@ -1,5 +1,11 @@
 ;; 基础配置
 
+;; 启用 winner-mode
+(winner-mode 1)
+
+;; 配置自动备份位置
+(setq backup-directory-alist (quote (("." . "~/.backup-file"))))
+
 ;; 高亮成对括号
 (show-paren-mode 1)
 
