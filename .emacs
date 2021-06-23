@@ -7,3 +7,4 @@
 (require 'init-theme)
 (require 'init-lisp)
 
+(require 'init-orgmode)
