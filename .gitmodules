@@ -1,0 +1,3 @@
+[submodule ".emacs.d/lisp/common/fuzzy-el"]
+	path = .emacs.d/lisp/common/fuzzy-el
+	url = https://github.com/auto-complete/fuzzy-el.git
