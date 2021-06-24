@@ -1,5 +1,11 @@
 ;; 基础配置
 
+;; 使用y-n代替yes-no
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; 配置制表符
+(setq default-tab-width 4)
+
 ;; 启用 winner-mode
 (winner-mode 1)
 
@@ -44,7 +50,7 @@
 ;; 高亮
 ;; 当前行高亮
 ;; zenburn 这个主题不支持当前行高亮
-(global-hl-line-mode 0)
+(global-hl-line-mode 1)
 
 ;; 自动保存文件配置
 
