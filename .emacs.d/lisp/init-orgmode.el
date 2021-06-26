@@ -1,4 +1,4 @@
-;; org-mode 相关配置
+;;;; org-mode 相关配置
 
 ;; 自动换行
 (global-visual-line-mode 1)
@@ -15,8 +15,10 @@
 (require 'ob-java)
 ;; 加载 c 相关 el
 (require 'ob-C)
-;;
+;; 加载 lisp 相关 el
 (require 'ob-lisp)
 
+;; 加载 GTD 相关 el
+(require 'init-gtd)
 
 (provide 'init-orgmode)

@@ -1,4 +1,4 @@
-;; 插件配置
+;;;; 插件配置
 ;; 快速重启 emacs
 (use-package restart-emacs)
 
@@ -25,5 +25,10 @@
 (global-auto-complete-mode t)
 ;; helm 模糊查询
 (use-package helm)
+
+;;; Diff 工具
+;; https://github.com/justbur/emacs-vdiff
+(use-package vdiff)
+(require 'vdiff)
 
 (provide 'init-packages)
