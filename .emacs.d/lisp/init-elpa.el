@@ -36,9 +36,6 @@
   (setq use-package-expand-minimally t)
   (setq use-package-verbose t))
 
-;; 插件安装
-
-;; 启动包管理器
-(require 'use-package)
+(setq use-package-always-ensure t)
 
 (provide 'init-elpa)
