@@ -1,5 +1,13 @@
 ;; 基础配置
 
+;;; 前后增加括号、符号等
+;; electric-pair-mode
+(electric-pair-mode t)
+
+;;; Tab
+;; 设置 Tab 的长度为 4
+(setq default-tab-width 4)
+
 ;; 使用y-n代替yes-no
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -54,8 +62,9 @@
 ;; 当前行高亮
 (global-hl-line-mode 1)
 
-;;; 自动保存文件配置
-
+;;; Socks 代理
+;;(setq url-gateway-method 'socks)
+;;(setq socks-server '("V2ray" "127.0.0.1" 1289 5))
 
 ;;; 字体配置
 ;; 由 cnfonts 生成

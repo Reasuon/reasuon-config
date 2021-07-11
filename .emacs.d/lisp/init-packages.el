@@ -57,6 +57,21 @@
   )
 (counsel-mode 1)
 
+;;; 导出为 html
+;; https://github.com/hniksic/emacs-htmlize
+(use-package htmlize)
+
+;;; 谷歌翻译
+;; https://github.com/atykhonov/google-translate
+(use-package google-translate)
+(require 'google-translate-default-ui)
+(global-set-key (kbd "C-c t") 'google-translate-at-point)
+(global-set-key (kbd "C-c T") 'google-translate-query-translate)
+(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "zh-CN")
+
 ;;; 字体配置
 ;; https://github.com/tumashu/cnfonts
 ;; 安装完成之后，执行: M-x cnfonts-edit-profile 打开页面进行配置

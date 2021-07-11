@@ -19,6 +19,11 @@
 ;; 加载 lisp 相关 el
 (require 'ob-lisp)
 
+;;; 设置时间格式
+;;
+(setq-default org-display-custom-times t)
+(setq org-time-stamp-custom-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M:%S>"))
+
 ;; 加载 GTD 相关 el
 (require 'init-gtd)
 
