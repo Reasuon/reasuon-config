@@ -7,10 +7,10 @@
 (org-babel-do-load-languages
  'org-babel-do-load-languages
  '((java . t)
-   (C . t)
-   (emacs-lisp . t)
-   )
+ (C . t)
+ (emacs-lisp . t)
  )
+)
 
 ;; 加载 java 相关 el
 (require 'ob-java)
