@@ -4,26 +4,14 @@
 ;; 安装后可以通过 M-x restart-emacs 重启 emacs
 (use-package restart-emacs)
 
+;;; popup
+;; https://github.com/auto-complete/popup-el
+(add-to-list 'load-path (expand-file-name (concat user-emacs-directory "lisp/common/popup-el")))
+(require 'popup)
+
 ;;; git 工具
 ;; https://github.com/magit/magit
 (use-package magit)
-
-;;; 自动补全
-;; https://github.com/auto-complete/auto-complete
-;;(use-package auto-complete)
-;;(require 'auto-complete)
-;; 启动补全的筛选
-;; 启动该项后，在补全时，可以用C-s进行筛选
-;;(setq ac-use-menu-map t)
-
-;;; 安装 fuzzy-el
-;; git clone https://github.com/auto-complete/fuzzy-el.git ~/.emacs.d/lisp/common/
-;;(add-to-list 'load-path (expand-file-name (concat user-emacs-directory "lisp/common/fuzzy-el")))
-;;(require 'fuzzy)
-;; 使用fuzzy功能
-;;(setq ac-fuzzy-enable t)
-;; 启动自动补全
-;;(global-auto-complete-mode t)
 
 ;;; Diff 工具
 ;; https://github.com/justbur/emacs-vdiff
@@ -56,10 +44,14 @@
   (global-set-key (kbd "C-c V") 'ivy-pop-view)
   )
 (counsel-mode 1)
+(ivy-mode 1)
 
 ;;; 导出为 html
 ;; https://github.com/hniksic/emacs-htmlize
-(use-package htmlize)
+(use-package htmlize
+  :ensure t
+  :init
+  (setq htmlize-force-inline-images t))
 
 ;;; 谷歌翻译
 ;; https://github.com/atykhonov/google-translate
@@ -71,6 +63,27 @@
 (global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "zh-CN")
+
+;;; 文件浏览器
+;; https://github.com/Alexander-Miller/treemacs
+(use-package treemacs
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  )
+
+(use-package treemacs-projectile
+  :after (treemacs projectile)
+  :ensure t)
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  :ensure t)
+
+(use-package treemacs-icons-dired
+  :after (treemacs dired)
+  :ensure t
+  :config (treemacs-icons-dired-mode))
 
 ;;; 字体配置
 ;; https://github.com/tumashu/cnfonts
@@ -87,3 +100,4 @@
 (require 'init-code)
 
 (provide 'init-packages)
+

@@ -1,3 +1,6 @@
 [submodule ".emacs.d/lisp/common/fuzzy-el"]
 	path = .emacs.d/lisp/common/fuzzy-el
 	url = https://github.com/auto-complete/fuzzy-el.git
+[submodule ".emacs.d/lisp/common/popup-el"]
+	path = .emacs.d/lisp/common/popup-el
+	url = https://github.com/auto-complete/popup-el.git

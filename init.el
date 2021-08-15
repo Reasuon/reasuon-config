@@ -17,6 +17,9 @@
 ;; 将自动生成的配置存入指定文件
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+;;; sqlite3
+;;(add-to-list 'exec-path "e:/sqlite3")
+
 ;;; 加载 lisp
 (add-to-list 'load-path
 	     (expand-file-name (concat user-emacs-directory "lisp")))
@@ -26,5 +29,6 @@
 (require 'init-theme)
 (require 'init-lisp)
 (require 'init-orgmode)
-(require 'init-mediawiki)
-(require 'init-eaf)
+;;(require 'init-mediawiki)
+;;(require 'init-eaf)
+(require 'init-roam)

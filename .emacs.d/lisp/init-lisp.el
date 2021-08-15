@@ -7,6 +7,8 @@
 (require 'move-text)
 ;; 直接复制或剪切整行文本
 (require 'cut-copy-line)
+;; 文本替换相关
+(require 'text-replace)
 
 ;; 加载 gui 相关 lisp
 (add-to-list 'load-path (expand-file-name (concat user-emacs-directory "lisp/common-gui")))

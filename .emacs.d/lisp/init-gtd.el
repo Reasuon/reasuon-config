@@ -12,7 +12,7 @@
 ;; WAITING: 等待 HOLD: 停止 CANCELLED: 取消
 ;; PHONE: 电话 MEETING: 会议
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+      (quote ((sequence "TODO(t!)" "NEXT(n!)" "|" "DONE(d!)")
               (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
 
 (setq org-todo-keyword-faces
@@ -27,5 +27,9 @@
 
 ;; 启动后，就可以通过 C-c C-t KEY 快速切换状态
 (setq org-use-fast-todo-selection t)
+
+;;; 番茄计时
+;;(use-package pomodoro
+;;  :hook org-mode)
 
 (provide 'init-gtd)

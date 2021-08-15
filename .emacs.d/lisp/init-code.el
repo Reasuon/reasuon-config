@@ -17,9 +17,15 @@
 (setq lsp-java-server-install-dir "~/.emacs.d/jdtls/")
 
 ;;; lsp-java
+;; 关闭一些信息的显示
+(setq lsp-inhibit-message t)
+(setq lsp-ui-sideline-update-mode 'point)
 ;; https://github.com/emacs-lsp/lsp-java
 ;; 需要使用命令 M-x lsp-install-server 安装 jdtls 服务器
-(use-package lsp-java)
+(use-package lsp-java
+  :ensure t
+  :init
+  (require 'lsp-java-boot))
 
 ;;; lsp-mode
 ;; https://github.com/emacs-lsp/lsp-mode
@@ -28,7 +34,11 @@
 
 ;;; lsp-ui
 ;; https://github.com/emacs-lsp/lsp-ui
-(use-package lsp-ui)
+(use-package lsp-ui
+  :config
+  (setq lsp-ui-doc-position 'bottom
+	lsp-ui-doc-delay 5)
+  )
 
 ;;; 语法检测
 (use-package flycheck)
@@ -40,7 +50,7 @@
 ;;  :config (helm-mode))
 
 ;;; lsp-treemacs
-;; 
+;;
 (use-package lsp-treemacs)
 
 ;;; LSP 调用 ivy
@@ -51,6 +61,12 @@
 ;; 在所有的 buffers 中启动 company-mode
 (add-hook 'after-init-hook 'global-company-mode)
 
+;;;
+(use-package projectile)
+
+;;;
+(use-package hydra)
+
 ;;; lsp-java hook
 (add-hook 'java-mode-hook #'lsp)
 (add-hook 'java-mode-hook 'flycheck-mode)
@@ -58,5 +74,18 @@
                             (setq c-basic-offset 4
                                   tab-width 4
                                   indent-tabs-mode t)))
+
+(add-hook 'lsp-mode-hook #'lsp-lens-mode)
+(add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+
+(use-package yaml-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+(add-hook 'yaml-mode-hook
+	  '(lambda ()
+	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;;(use-package properties-mode
+;;  :mode "\\.properties\\'")
 
 (provide 'init-code)

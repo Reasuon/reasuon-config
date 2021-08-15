@@ -1,5 +1,8 @@
 ;; 基础配置
 
+;;; 关闭无用快捷键
+(global-unset-key (kbd "C-x C-z"))
+
 ;;; 前后增加括号、符号等
 ;; electric-pair-mode
 (electric-pair-mode t)
@@ -61,6 +64,9 @@
 ;;; 高亮
 ;; 当前行高亮
 (global-hl-line-mode 1)
+;; 行尾空格高亮
+(global-whitespace-mode)
+(setq whitespace-style '(face trailing empty tab-mark))
 
 ;;; Socks 代理
 ;;(setq url-gateway-method 'socks)
@@ -84,5 +90,37 @@
               :weight 'normal
               :slant 'normal
               :size 12.0)))
+
+;;; 矩形编辑
+(cua-selection-mode t)
+
+;;; eshell 配置
+;; 常用命令
+(defalias 'ff 'find-file)
+;; 基础配置
+(setq
+ eshell-save-history-on-exit   t
+      eshell-history-size           512
+      eshell-hist-ignoredups        t
+      eshell-cmpl-ignore-case       t
+      eshell-cp-interactive-query   t
+      eshell-ln-interactive-query   t
+      eshell-mv-interactive-query   t
+      eshell-rm-interactive-query   t
+      eshell-mv-overwrite-files     nil
+      eshell-highlight-prompt   t
+      ;; 提示符设置，下面两项必须对应起来，
+      ;; 否则会报 read-only，并且不能补全什么的
+      eshell-prompt-regexp      "^[^#$\n]* [#>]+ "
+      eshell-prompt-function    (lambda nil
+                                  (concat
+                                   (abbreviate-file-name
+                                    (eshell/pwd))
+                                   (if
+                                       (=
+                                        (user-uid)
+                                        0)
+                                       " # " " >>> ")))
+)
 
 (provide 'init-startup)
