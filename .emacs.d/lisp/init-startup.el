@@ -1,4 +1,9 @@
-;; 基础配置
+;;;; 基础配置
+
+;;; Tab 长度
+(setq-default tab-width 4)
+(setq tab-width 4)
+'(tab-stop-list (quote (4)))
 
 ;;; 关闭无用快捷键
 (global-unset-key (kbd "C-x C-z"))
@@ -93,6 +98,11 @@
 
 ;;; 矩形编辑
 (cua-selection-mode t)
+
+;;;
+(require 'tramp)
+(setq tramp-default-method "ssh")
+(customize-set-variable 'tramp-syntax 'simplified)
 
 ;;; eshell 配置
 ;; 常用命令

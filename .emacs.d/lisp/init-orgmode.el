@@ -9,6 +9,7 @@
  '((java . t)
    (C . t)
    (emacs-lisp . t)
+   (plantuml . t)
    )
  )
 
@@ -18,6 +19,15 @@
 (require 'ob-C)
 ;; 加载 lisp 相关 el
 (require 'ob-lisp)
+;; 加载 plantuml 相关 el
+(require 'ob-plantuml)
+;;; 加载 plantuml jar
+(setq org-plantuml-jar-path
+      (expand-file-name "d:/plantuml/plantuml.jar"))
+;; 加载 plantuml-mode
+(add-to-list
+  'org-src-lang-modes '("plantuml" . plantuml))
+
 
 ;;; 设置时间格式
 (setq-default org-display-custom-times t)
@@ -72,6 +82,7 @@
 ;;; 默认展示所有内联图片
 (setq org-startup-with-inline-images t)
 
+;;; 将导出的图片文件转为 base64 织入 html
 (defun org-org-html--format-image (source attributes info)
   (format "<img src=\"data:image/%s;base64,%s\"%s />"
       (or (file-name-extension source) "")
@@ -80,6 +91,7 @@
 	 (insert-file-contents-literally source)
 	 (buffer-string)))
       (file-name-nondirectory source)))
+;; 覆写图片处理方法
 (advice-add #'org-html--format-image :override #'org-org-html--format-image)
 
 ;; 加载 GTD 相关 el

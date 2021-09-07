@@ -46,6 +46,14 @@
 (counsel-mode 1)
 (ivy-mode 1)
 
+;;; plantuml
+;; https://github.com/skuro/plantuml-mode
+(use-package plantuml-mode
+  :init
+  (setq plantuml-jar-path "d:/plantuml/plantuml.jar")
+  (setq plantuml-default-exec-mode 'jar)
+  )
+
 ;;; 导出为 html
 ;; https://github.com/hniksic/emacs-htmlize
 (use-package htmlize
@@ -55,14 +63,38 @@
 
 ;;; 谷歌翻译
 ;; https://github.com/atykhonov/google-translate
-(use-package google-translate)
-(require 'google-translate-default-ui)
-(global-set-key (kbd "C-c t") 'google-translate-at-point)
-(global-set-key (kbd "C-c T") 'google-translate-query-translate)
-(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
-(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
-(setq google-translate-default-source-language "en")
-(setq google-translate-default-target-language "zh-CN")
+;;(use-package google-translate
+;;  :ensure t
+;;  ;;:custom
+;;  ;;(custom-set-variables '(google-translate-base-url "https://translate.google.cn/translate_a/single"))
+;;  ;;(custom-set-variables '(google-translate-listen-url "https://translate.google.cn/translate_tts"))
+;;  ;;(custom-set-variables '(google-translate--ttk-url "https://translate.google.cn/"))
+;;  :init
+;;  (global-set-key (kbd "C-c t") 'google-translate-at-point)
+;;  (global-set-key (kbd "C-c T") 'google-translate-query-translate)
+;;  (global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+;;  (global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
+;;  (setq google-translate-default-source-language "en")
+;;  (setq google-translate-default-target-language "zh-CN")
+;; 
+;;  )
+;;(require 'google-translate-default-ui)
+
+;;; 谷歌翻译
+;; https://github.com/lorniu/go-translate
+(use-package go-translate
+  :ensure t
+  :init
+  (setq go-translate-base-url "https://translate.google.cn")
+  (setq go-translate-local-language "en")
+  (setq go-translate-target-language "zh-CN")
+  (setq go-translate-extra-directions '(("en" . "zh-CN") ("zh-CN" . "en") ("zh-CN" . "ja")))
+  (global-set-key (kbd "C-c t") 'go-translate)
+  (global-set-key (kbd "C-c T") 'go-translate-popup)
+  :config
+  ;; 该行配置参考 https://github.com/lorniu/go-translate/pull/8
+  (setq go-translate-token-current (cons 430675 2721866130))
+  )
 
 ;;; 文件浏览器
 ;; https://github.com/Alexander-Miller/treemacs
