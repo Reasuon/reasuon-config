@@ -4,6 +4,6 @@
 ;;; 设置代理地址
 (setq url-proxy-services '(("http" . "127.0.0.1:1289")
                            ("https" . "127.0.0.1:1289")
-                           ("no_proxy" . "^.*(?!translate\\.google\\.com).*$")))
+                           ("no_proxy" . "^.*(?!translate\\.google\\.cn).*$")))
 
 (provide 'init-proxy)
